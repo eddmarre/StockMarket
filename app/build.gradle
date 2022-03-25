@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    implementation "io.github.mainstringargs.alphavantagescraper:alpha-vantage-scraper:1.5.1"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
     implementation 'androidx.appcompat:appcompat:1.4.1'

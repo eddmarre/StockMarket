@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class StockData {
     private String dateTime;
-    private final double open;
-    private final double high;
-    private final double low;
-    private final double close;
+    private final float open;
+    private final float high;
+    private final float low;
+    private final float close;
     private final int volume;
 
 
-    public StockData(String dateTime, double open, double high, double low, double close,
+    public StockData(String dateTime, float open, float high, float low, float close,
                      int volume) {
         this.dateTime = dateTime;
         this.open = open;
@@ -25,19 +25,19 @@ public class StockData {
         return dateTime;
     }
 
-    public double getOpen() {
+    public float getOpen() {
         return open;
     }
 
-    public double getHigh() {
+    public float getHigh() {
         return high;
     }
 
-    public double getLow() {
+    public float getLow() {
         return low;
     }
 
-    public double getClose() {
+    public float getClose() {
         return close;
     }
 
