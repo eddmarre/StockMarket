@@ -49,4 +49,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sampleText" />
 
+    <Button
+        android:id="@+id/searchCompanies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SearchForCompanies"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:onClick="ShowCompaniesButton"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
