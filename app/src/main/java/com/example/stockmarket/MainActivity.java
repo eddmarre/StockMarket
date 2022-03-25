@@ -117,6 +117,9 @@ CandleStickChart chart;
     {
     String result;
     String SYMBOL;
+    //MUST INSERT YOUR OWN KEY TO USE
+        //GET KEY FROM https://www.alphavantage.co/support/#api-key
+    String APIKey="50BZM4QNXYEYF7K3";
 
     public void SetSymbol(String symbol)
     {
@@ -130,7 +133,7 @@ CandleStickChart chart;
             URL url;
             HttpURLConnection urlConnection = null;
             try {
-                String uri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+SYMBOL+"&apikey=50BZM4QNXYEYF7K3";
+                String uri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="+SYMBOL+"&apikey="+APIKey;
                 url= new URL(uri);
                 urlConnection=(HttpURLConnection) url.openConnection();
                 InputStream inputStream = urlConnection.getInputStream();
@@ -171,7 +174,6 @@ CandleStickChart chart;
 
                 JSONArray dates =timeSeriesDaily.names();
 
-                StringBuilder allStockInfo=new StringBuilder();
                 //put all data into a list
                 ArrayList<StockData> dailyStock = new ArrayList<>();
 
