@@ -3,27 +3,25 @@ package com.example.stockmarket;
 import java.time.LocalDateTime;
 
 public class StockData {
-    private final LocalDateTime dateTime;
+    private String dateTime;
     private final double open;
     private final double high;
     private final double low;
     private final double close;
-    private final double adjustedClose;
-    private final long volume;
+    private final int volume;
 
 
-    public StockData(LocalDateTime dateTime, double open, double high, double low, double close,
-                     long volume) {
+    public StockData(String dateTime, double open, double high, double low, double close,
+                     int volume) {
         this.dateTime = dateTime;
         this.open = open;
         this.high = high;
         this.low = low;
         this.close = close;
-        this.adjustedClose = 0;
         this.volume = volume;
     }
 
-    public LocalDateTime getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
@@ -43,12 +41,13 @@ public class StockData {
         return close;
     }
 
-    public double getAdjustedClose() {
-        return adjustedClose;
+    public int getVolume() {
+        return volume;
     }
 
-    public long getVolume() {
-        return volume;
+    public String ToString()
+    {
+       return  dateTime + "\n"+open+"\n"+high+"\n"+low+"\n"+close+"\n"+volume+"\n";
     }
 
 }

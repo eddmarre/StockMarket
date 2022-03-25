@@ -10,4 +10,13 @@ public class Company {
     public Company(String companySymbol, ArrayList<StockData> companyStockPrices) {
         this.companySymbol = companySymbol;
         this.companyStockPrices = companyStockPrices;
-    }}
+    }
+    public String getCompanySymbol()
+    {
+        return companySymbol;
+    }
+    public ArrayList<StockData> getCompanyStockPrices()
+    {
+        return companyStockPrices;
+    }
+}

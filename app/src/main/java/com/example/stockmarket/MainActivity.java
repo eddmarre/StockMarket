@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.github.mainstringargs.alphavantagescraper.AlphaVantageConnector;
@@ -102,6 +103,8 @@ TextView sampleText;
                 JSONArray dates =timeSeriesDaily.names();
                 StringBuilder allStockInfo=new StringBuilder();
                 //put all data into a list for
+                ArrayList<StockData> dailyStock = new ArrayList<>();
+
                for (int i=0;i<dates.length();i++)
                {
                    String stockDate=dates.getString(i);
@@ -111,10 +114,25 @@ TextView sampleText;
                    String closeValue=timeSeriesDaily.getJSONObject(stockDate).getString("4. close");
                    String volumeValue=timeSeriesDaily.getJSONObject(stockDate).getString("5. volume");
                    String totalStock=stockDate+"\nopen: "+openValue+"\nhigh: "+highValue+"\nlow: "+lowValue+"\nclose: "+closeValue+"\nvolume: "+volumeValue+"\n";
+
+                   Double iOpenValue=Double.parseDouble(openValue);
+                   Double iHighValue=Double.parseDouble(highValue);
+                   Double iLowValue=Double.parseDouble(lowValue);
+                   Double iCloseValue=Double.parseDouble(closeValue);
+                   int iVolumeValue=Integer.parseInt(volumeValue);
+                    dailyStock.add(new StockData(stockDate,iOpenValue,iHighValue,iLowValue,iCloseValue,iVolumeValue));
                    allStockInfo.append(totalStock);
                    //TODO put data into classes for each company and so forth
                }
-                sampleText.setText(allStockInfo.toString());
+               Company currentCompany= new Company(SYMBOL,dailyStock);
+                ArrayList<StockData> currentCompanyStock = currentCompany.getCompanyStockPrices();
+                int listSize=3;
+                StringBuilder companyTop3Stock=new StringBuilder();
+                for(int i=0;i<listSize;i++)
+                {
+                    companyTop3Stock.append(currentCompanyStock.get(i).ToString());
+                }
+                sampleText.setText(companyTop3Stock.toString());
                 //sampleText.setText(metaData.getString("2. Symbol"));
             } catch (Exception e) {
                 e.printStackTrace();
