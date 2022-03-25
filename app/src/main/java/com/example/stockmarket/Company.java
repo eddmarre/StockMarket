@@ -1,7 +1,7 @@
 package com.example.stockmarket;
 
 import java.util.ArrayList;
-
+//Eddie
 public class Company {
 
     private String companySymbol;

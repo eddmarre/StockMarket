@@ -1,8 +1,9 @@
 package com.example.stockmarket;
 
 import java.time.LocalDateTime;
-
+//Eddie
 public class StockData {
+    //holds data required for a stock
     private String dateTime;
     private final float open;
     private final float high;

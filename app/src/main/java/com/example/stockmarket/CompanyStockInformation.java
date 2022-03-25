@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
+//Eddie
 public class CompanyStockInformation extends AppCompatActivity {
     TextView text;
     CandleStickChart chart;
@@ -34,7 +34,7 @@ public class CompanyStockInformation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_stock_information);
-
+        //Get data sent over through activity intent
         Bundle extras=getIntent().getExtras();
         String symbol="";
         if(extras!=null)
@@ -46,13 +46,14 @@ public class CompanyStockInformation extends AppCompatActivity {
 
         chart=(CandleStickChart) findViewById(R.id.chart);
 
+        //Create new async task
         CompanyStockSearchTask companyStockSearchTask=new CompanyStockSearchTask();
         //Set Search Symbol
         companyStockSearchTask.SetSymbol(symbol);
         //Start api connection
         companyStockSearchTask.execute();
     }
-
+    //Eddie
     public class CompanyStockSearchTask extends AsyncTask<String,String,String>
     {
         String result;
@@ -144,6 +145,7 @@ public class CompanyStockInformation extends AppCompatActivity {
             }
         }
     }
+    //Eddie
     public void setCandleStickChart(Company company)
     {
         ArrayList<StockData> companyStock=company.getCompanyStockPrices();
